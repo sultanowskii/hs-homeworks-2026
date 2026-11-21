@@ -129,6 +129,7 @@ triangleKind a b c
   | a <= 0 || b <= 0 || c <= 0      = -1
   | shortEdge + midEdge <= longEdge = -1
   | otherwise                       = case compare (square shortEdge + square midEdge) (square longEdge) of
+    -- если z - большая сторона, то "угольность" треугольника определяется сравнением x^2+y^2 и z^2
     LT -> 0
     GT -> 1
     EQ -> 2
